@@ -11,33 +11,7 @@ import locale
 
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
-st.title("Minha Página com Barra Fixa no Rodapé")
-# HTML e CSS para a barra fixa no rodapé
-footer = """
-<style>
-footer {
-    visibility: hidden;
-}
-#rodape {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #999999;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    z-index: 1000;
-    font-size: 16px;
-}
-</style>
-<div id="rodape">
-    © 2024 Minha Empresa | Todos os direitos reservados.
-</div>
-"""
 
-# Insere o HTML e CSS no Streamlit
-st.markdown(footer, unsafe_allow_html=True)
 
 ###### CSS para definir a imagem de fundo [Inicio]
 
