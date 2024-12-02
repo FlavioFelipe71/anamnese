@@ -12,17 +12,32 @@ import locale
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
-# CSS para ocultar o contêiner do avatar
-hide_streamlit_styles = """
+# HTML e CSS para a barra fixa no rodapé
+footer = """
 <style>
-footer {visibility: hidden;}
+footer {
+    visibility: hidden;
+}
+#rodape {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+    font-size: 16px;
+}
 </style>
+<div id="rodape">
+    © 2024 Minha Empresa | Todos os direitos reservados.
+</div>
 """
-st.markdown(hide_streamlit_styles, unsafe_allow_html=True)
 
-
-# Criar um elemento que será exibido na frente do avatar
-st.markdown('<div class="custom-element">Texto ou conteúdo exibido na frente do avatar</div>', unsafe_allow_html=True)
+# Insere o HTML e CSS no Streamlit
+st.markdown(footer, unsafe_allow_html=True)
 
 ###### CSS para definir a imagem de fundo [Inicio]
 
