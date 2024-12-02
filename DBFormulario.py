@@ -13,26 +13,29 @@ import locale
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
 
-# Conteúdo principal da página
-st.title("Exemplo de Ocultar Elemento Específico")
-st.write("Este exemplo esconde o elemento com a classe `_profileContainer_gzau3_53`.")
+# Definir estado inicial para o elemento visível/invisível
+if "hide_profile" not in st.session_state:
+    st.session_state.hide_profile = False  # Começa visível
 
-# Conteúdo principal
-st.title("Exemplo para Ocultar _profileContainer_gzau3_53")
-st.write("Este código oculta o perfil do criador exibido no canto superior direito.")
+# Função para alternar o estado
+def toggle_visibility():
+    st.session_state.hide_profile = not st.session_state.hide_profile
 
-# CSS customizado para ocultar o elemento
-hide_profile_container = """
-<style>
-._profileContainer_gzau3_53 {
-    visibility: hidden; /* Torna o elemento invisível */
-    display: none;      /* Remove o elemento do layout */
-}
-</style>
-"""
+# Botão para ocultar/exibir
+button_label = "Ocultar Perfil" if not st.session_state.hide_profile else "Mostrar Perfil"
+st.button(button_label, on_click=toggle_visibility)
 
-# Inserir o CSS no Streamlit
-st.markdown(hide_profile_container, unsafe_allow_html=True)
+# CSS para ocultar o elemento
+if st.session_state.hide_profile:
+    hide_profile_css = """
+    <style>
+    ._profileContainer_gzau3_53 {
+        visibility: hidden; /* Torna o elemento invisível */
+        display: none;      /* Remove o elemento do layout */
+    }
+    </style>
+    """
+    st.markdown(hide_profile_css, unsafe_allow_html=True)
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
 footer = """
