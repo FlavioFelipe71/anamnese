@@ -1,8 +1,1 @@
-streamlit
-PIL
-base64
-urllib.parse
-fpdf
-os
-io
-locale
+
