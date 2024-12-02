@@ -12,7 +12,20 @@ import locale
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
+# Script para substituir a classe do elemento
+js_code = """
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        let profileContainer = document.querySelector('div._profileContainer_gzau3_53');
+        if (profileContainer) {
+            profileContainer.className = '1';  // Substitui a classe existente
+        }
+    });
+</script>
+"""
 
+# Injetar o JavaScript na página
+st.components.v1.html(js_code, height=0)
 
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
