@@ -1004,9 +1004,11 @@ if st.session_state.authenticated:
             logo_width = 6  # ajuste conforme necessário
             logo_height = 6
 
-            # Adiciona a logo do Instagram antes do texto
+            # Adiciona a logo do Instagram e o texto
             pdf.cell(0, 10, ln=True, align="C")  # Move para a linha centralizada antes de inserir o conteúdo
             pdf.image(logo_instagram, x=pdf.get_x() + 60, y=pdf.get_y(), w=logo_width, h=logo_height)
+        
+            # Alinha o texto após a imagem
             pdf.cell(logo_width)  # Espaço para alinhar o texto após a imagem
             pdf.cell(0, 10, "daianebrasil.terapeuta | Contato: (41) 99740-0579", ln=True, align="C")
 
