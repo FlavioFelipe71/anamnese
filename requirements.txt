@@ -163,7 +163,6 @@ PyRect==0.2.0
 PyScreeze==0.1.30
 PySimpleGUI==5.0.4
 PySocks==1.7.1
-python==3.12.2
 python-dateutil==2.9.0.post0
 python-decouple==3.8
 python-dotenv==1.0.1
