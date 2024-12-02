@@ -12,33 +12,13 @@ import locale
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
-# Adicionando CSS customizado para mover o avatar para o segundo plano e exibir conteúdo sobre ele
+# CSS para ocultar o avatar
 st.markdown(
     """
     <style>
-    /* Colocar o container do avatar no fundo */
-    ._profileContainer_gzau3_53 {
-        position: relative;
-        z-index: -1;  /* Mover o avatar para o fundo */
-    }
-
-    /* Colocar o avatar específico para o fundo */
-    ._profilePreview_gzau3_63 {
-        position: relative;
-        z-index: -1;  /* Garantir que o avatar fique atrás */
-    }
-
-    /* Elemento customizado que ficará na frente do avatar */
-    .custom-element {
-        position: absolute;
-        top: 50px;  /* Ajuste conforme necessário */
-        left: 50px;  /* Ajuste conforme necessário */
-        z-index: 10;  /* Garantir que o novo conteúdo fique na frente do avatar */
-        background-color: rgba(0, 128, 255, 0.5); /* Cor de fundo semitransparente (azul) */
-        padding: 10px;
-        color: white;
-        font-size: 16px;
-        border-radius: 5px;
+    /* Ocultar a imagem do avatar */
+    ._profileImage_gzau3_78._lightThemeShadow_gzau3_95 {
+        display: none !important;
     }
     </style>
     """, 
