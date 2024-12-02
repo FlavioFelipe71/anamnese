@@ -1425,7 +1425,7 @@ else:
     with col1:
         st.markdown("""
     <div style="text-align: center; padding: 20px;">
-        <p>Boas-vindas ao seu ambiente de transformação emocional! Eu sou <strong>Daiane Brasil</strong>, <strong>Terapeuta TESTE<strong>.</p>
+        <p>Boas-vindas ao seu ambiente de transformação emocional! Eu sou <strong>Daiane Brasil</strong>, <strong>Terapeuta<strong>.</p>
         <p>Dedico a minha vida profissional a auxiliar mulheres que desejam resolver conflitos internos e superar desafios emocionais que se manifestam em diversas áreas da vida: relacionamentos, auto-imagem, autoconfiança e desenvolvimento pessoal.</p>
         <p>Aqui, você tem um local seguro e acolhedor para explorar as emoções sob uma nova perspectiva e cultivar a força interior necessária para viver uma vida mais equilibrada e satisfatória.</p>
         <p>Como sua terapeuta, estarei presente, ouvirei com empatia e sabedoria e respeitarei a sua jornada e identidade individual.</p>
