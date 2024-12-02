@@ -109,7 +109,6 @@ if st.session_state.authenticated:
 
     col1, col2, col3 =st.columns([2,5,1])
     with col1:
-        #st.image("C:\\python-projeto\\ControllerSoft\\logo_DB.png")
         # Obtém o caminho absoluto do diretório atual
         current_directory = os.path.dirname(os.path.abspath(__file__))
 
@@ -932,8 +931,6 @@ if st.session_state.authenticated:
             pdf.set_font("helvetica", size=10)
 
             # Adicionar a logo
-            ####logo_path = "C:/python-projeto/ControllerSoft/logo_DB.png"
-            ####pdf.image(logo_path, x=10, y=8, w=40)  # Ajuste conforme necessário
             current_dir = os.path.dirname(os.path.abspath(__file__))
             logo_path = os.path.join(current_dir, "ControllerSoft", "logo_DB.png")
 
@@ -1489,7 +1486,7 @@ else:
     with col3:
         # Obtém o caminho do diretório onde o script está sendo executado
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        logo_path = os.path.join(current_dir, "ControllerSoft", "logo_DB.png")
+        logo_path = os.path.join(current_dir, "logo_DB.png") 
         
         # Abre e exibe a imagem no Streamlit
         foto = Image.open(logo_path)  # Caminho dinâmico
