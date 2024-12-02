@@ -999,7 +999,8 @@ if st.session_state.authenticated:
             pdf.line(10, pdf.get_y(), pdf.w - 10, pdf.get_y())  # Linha que cobre de margem a margem
             
             # Adicionar logo Instagram e texto
-            logo_instagram = "C:\\python-projeto\\ControllerSoft\\instagram.png"  # Substitua pelo caminho da imagem do Instagram
+            current_dir = os.getcwd()
+            logo_instagram = os.path.join(current_dir, "logo_instagram.png")
             logo_width = 6  # ajuste conforme necessário
             logo_height = 6
 
