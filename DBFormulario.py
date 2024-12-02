@@ -17,18 +17,22 @@ st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 st.title("Exemplo de Ocultar Elemento Específico")
 st.write("Este exemplo esconde o elemento com a classe `_profileContainer_gzau3_53`.")
 
-# CSS customizado para esconder o elemento com a classe "_profileContainer_gzau3_53"
-hide_element_style = """
+# Conteúdo principal
+st.title("Exemplo para Ocultar _profileContainer_gzau3_53")
+st.write("Este código oculta o perfil do criador exibido no canto superior direito.")
+
+# CSS customizado para ocultar o elemento
+hide_profile_container = """
 <style>
 ._profileContainer_gzau3_53 {
-    visibility: hidden;
-    display: none;
+    visibility: hidden; /* Torna o elemento invisível */
+    display: none;      /* Remove o elemento do layout */
 }
 </style>
 """
 
 # Inserir o CSS no Streamlit
-st.markdown(hide_element_style, unsafe_allow_html=True)
+st.markdown(hide_profile_container, unsafe_allow_html=True)
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
 footer = """
