@@ -14,20 +14,16 @@ st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
 
 # Conteúdo principal da página
-st.title("Exemplo de Esconder Componentes Padrão")
+st.title("Exemplo de Esconder Componentes Padrão 2")
 st.write("Este exemplo esconde o rodapé e o menu principal do Streamlit.")
 
-# CSS customizado para esconder o menu principal e o rodapé
 hide_streamlit_style = """
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style>
-"""
-
-# Inserir o CSS no Streamlit
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
 footer = """
