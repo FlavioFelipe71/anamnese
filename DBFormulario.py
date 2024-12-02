@@ -27,12 +27,13 @@ footer {
     color: white;
     text-align: center;
     padding: 10px 0;
-    z-index: 1000;
+    z-index: 9999; /* Valor alto para trazer a barra na frente */
     font-size: 16px;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2); /* Adiciona um leve sombreado */
 }
 </style>
 <div id="rodape">
-    © 2024 Minha Empresa | Todos os direitos reservados.
+    © 2024 DB Brasil | Todos os direitos reservados.
 </div>
 """
 
