@@ -4,7 +4,7 @@ import base64
 from PIL import Image, ImageDraw,ImageEnhance
 from datetime import datetime, timedelta
 import urllib.parse
-from fpdf import FPDF, XPos, YPos
+from fpdf import FPDF
 import os
 from io import BytesIO
 import locale
@@ -908,7 +908,7 @@ if st.session_state.authenticated:
 ############################### GERAR PDF #############################################################################
 #######################################################################################################################
 
-    # Função para gerar o PDF
+        # Função para gerar o PDF
         def adicionar_subtitulo(pdf, texto):
             # Define fundo colorido e texto em branco para o subtítulo
             pdf.set_fill_color(193, 205, 205)  # Cor de fundo
@@ -916,15 +916,15 @@ if st.session_state.authenticated:
             pdf.set_font("helvetica", style="B", size=12)
             
             # Adiciona um retângulo de fundo e o texto do subtítulo
+# Adiciona um retângulo de fundo e o texto do subtítulo
             pdf.rect(10, pdf.get_y(), pdf.w - 20, 10, 'F')
-            pdf.cell(0, 10, text=texto, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
+            pdf.cell(0, 10, texto, ln=True, align="C")  # Substitui XPos.LMARGIN e YPos.NEXT por coordenadas relativas ou fixas
             
             # Retorna à cor de texto padrão para o conteúdo
             pdf.set_text_color(0, 0, 0)
             pdf.ln(1)
-    # Exemplo de adicionar queixa principal
-        
 
+        # Exemplo de adicionar queixa principal
         def gerar_pdf(dados):
             pdf = FPDF()
             pdf.add_page()
@@ -937,26 +937,22 @@ if st.session_state.authenticated:
 
             # Título centralizado
             pdf.set_font("helvetica", style="B", size=14)  # Tamanho maior para o título
-            pdf.cell(200, 12, "Relatório - Formulário de Anamnese Emocional", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
+            pdf.cell(200, 12, "Relatório - Formulário de Anamnese Emocional", ln=True, align="C")  # Substitui XPos.LMARGIN e YPos.NEXT por coordenadas relativas
 
             pdf.set_font("helvetica", size=8)  # Tamanho menor para a data
-            pdf.cell(200, 8, text=f"Data: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
+            pdf.cell(200, 8, f"Data: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}", ln=True, align="C")
             pdf.ln(10)
 
-            # Linha separadora que cobre toda a largura da página "______________________________________"
+            # Linha separadora que cobre toda a largura da página
             pdf.set_draw_color(0)  # Cor da linha (0 = preto)
             pdf.line(5, pdf.get_y()-10, pdf.w - 10, pdf.get_y()-10)  # Linha que cobre de margem a margem
 
-            # # Destacar o cabeçalho "Dados Pessoais"
-            # pdf.set_fill_color(193, 205, 205)  # Cor de fundo (vermelho-alaranjado)
-            # pdf.rect(10, pdf.get_y(), pdf.w - 20, 10, 'F')  # Retângulo preenchido atrás do texto
-            # # Adicionar texto "Dados Pessoais" no fundo colorido
-            # pdf.set_text_color(255, 255, 255)  # Cor do texto (branco)
-            # pdf.set_font("Arial", style="B", size=12)  # Estilo do texto
-            # pdf.cell(0, 10, text="Dados Pessoais", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")  # Cabeçalho
+            # Linha separadora que cobre toda a largura da página
+            pdf.set_draw_color(0)  # Cor da linha (0 = preto)
+            pdf.line(5, pdf.get_y()-10, pdf.w - 10, pdf.get_y()-10)  # Linha que cobre de margem a margem
 
-            # Voltar à cor de texto padrão
-            pdf.set_text_color(0, 0, 0)  # Preto para o restante do texto
+            # Destacar o cabeçalho "Dados Pessoais"
+            pdf.set_text_color(0, 0, 0)  # Cor do texto
             pdf.set_font("helvetica", size=10)  # Ajustar o tamanho da fonte para o restante do texto
             pdf.ln(-3)  # Espaço extra
 
@@ -964,7 +960,7 @@ if st.session_state.authenticated:
             col_width = pdf.w / 2 - 20  # Cada coluna ocupa metade da largura da página
             row_height = 8
 
-        # Adicionar seções ao PDF
+            # Adicionar seções ao PDF
             for secao, conteudo in dados.items():
                 # Título da seção
                 adicionar_subtitulo(pdf, secao)
@@ -974,59 +970,46 @@ if st.session_state.authenticated:
                     for i in range(0, len(items), 2):
                         label1, valor1 = items[i]
                         pdf.set_font("helvetica", size=11)  # Estilo do texto
-                        pdf.cell(col_width, row_height, text=f"{label1}: {valor1}", border=0)
+                        pdf.cell(col_width, row_height, f"{label1}: {valor1}", border=0)  # Remover o 'text='
 
                         # Verifica se existe o próximo item para a segunda coluna
                         if i + 1 < len(items):
                             label2, valor2 = items[i + 1]
                             pdf.set_font("helvetica", size=11)  # Estilo do texto
-                            pdf.cell(col_width, row_height, text=f"{label2}: {valor2}", border=0)
+                            pdf.cell(col_width, row_height, f"{label2}: {valor2}", border=0)  # Remover o 'text='
                         pdf.ln(row_height)  # Pula para a próxima linha após cada par de itens
 
                 else:  # Caso contrário, exibe o conteúdo em uma coluna
                     for label, valor in items:
                         pdf.set_font("helvetica", size=11)  # Estilo do texto
-                        pdf.multi_cell(0, row_height, text=f"{label}: {valor}", border=0)
-                        pdf.ln(row_height /4)
+                        pdf.multi_cell(0, row_height, f"{label}: {valor}", border=0)
+                        pdf.ln(row_height / 4)
 
                 pdf.ln(1)  # Espaço extra entre seções
 
-        ### RODAPE
+    ### RODAPE
             # Adicionar rodapé ao final da página
             pdf.set_y(-30)  # Posição para o rodapé
             pdf.set_font("helvetica", style="I", size=8)  # Altere o tamanho da fonte aqui
             
-            # Linha separadora que cobre toda a largura da página "______________________________________"
+            # Linha separadora que cobre toda a largura da página
             pdf.set_draw_color(0)  # Cor da linha (0 = preto)
             pdf.line(10, pdf.get_y(), pdf.w - 10, pdf.get_y())  # Linha que cobre de margem a margem
-          
-            # Defina o caminho para a logo do Instagram
+            
+            # Adicionar logo Instagram e texto
             logo_instagram = "C:\\python-projeto\\ControllerSoft\\instagram.png"  # Substitua pelo caminho da imagem do Instagram
-
-            # Especificar as dimensões da logo  
             logo_width = 6  # ajuste conforme necessário
             logo_height = 6
 
             # Adiciona a logo do Instagram antes do texto
-            pdf.cell(0, 10, new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")  # Move para a linha centralizada antes de inserir o conteúdo
-
-            # Inserir a imagem logo ao lado do texto
+            pdf.cell(0, 10, ln=True, align="C")  # Move para a linha centralizada antes de inserir o conteúdo
             pdf.image(logo_instagram, x=pdf.get_x() + 60, y=pdf.get_y(), w=logo_width, h=logo_height)
             pdf.cell(logo_width)  # Espaço para alinhar o texto após a imagem
-            pdf.cell(0, 10, text="daianebrasil.terapeuta | Contato: (41) 99740-0579", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
-            # # Texto de rodapé com link para Instagram e telefone de contato
-            # pdf.ln(1)  # Espaço abaixo da linha
-            # pdf.cell(0, 10, text="Instagram: daianebrasil.terapeuta| Contato: (41) 99740-0579", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
+            pdf.cell(0, 10, "daianebrasil.terapeuta | Contato: (41) 99740-0579", ln=True, align="C")
 
-            # # Salvar PDF
-            # file_path = os.path.join(os.getcwd(), "relatorio_anamnese.pdf")
-            # pdf.output(file_path)
-            # return file_path
+            # Usar output com "S" para retornar o conteúdo como bytes
+            pdf_output = pdf.output(dest='S').encode('latin1')  # Gera o PDF como string/buffer
 
-                # Salvar o PDF em um objeto de memória
-            pdf_output = BytesIO()
-            pdf.output(pdf_output)
-            pdf_output.seek(0)
             return pdf_output
 
         # Função para capturar dados da interface (exemplo)
@@ -1512,5 +1495,8 @@ else:
                 st.success("Login efetuado com sucesso!")
             else:
                 st.error("Usuário ou senha incorretos. Tente novamente.")
+
+
+
 
 
