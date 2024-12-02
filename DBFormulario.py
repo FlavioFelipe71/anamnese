@@ -12,6 +12,17 @@ import locale
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
+# Adicionar CSS customizado para ocultar o avatar
+st.markdown(
+    """
+    <style>
+    ._profileContainer_gzau3_53 {
+        display: none;
+    }
+    </style>
+    """, 
+    unsafe_allow_html=True
+)
 ##### Oculta o botão Deploy do Streamilit
 st.markdown("""
     <style>
