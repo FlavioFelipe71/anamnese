@@ -11,20 +11,28 @@ import locale
 
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
+# CSS customizado para alterar o rodapé
+custom_footer_css = """
+<style>
 footer {
-	
-	visibility: hidden;
-	
-	}
-footer:after {
-	content:'goodbye'; 
-	visibility: visible;
-	display: block;
-	position: relative;
-	#background-color: red;
-	padding: 05px;
-	top: 02px;
+    visibility: hidden;
 }
+footer:after {
+    content: 'goodbye'; /* Texto personalizado no rodapé */
+    visibility: visible;
+    display: block;
+    position: relative;
+    padding: 5px;
+    top: 2px;
+    color: #333; /* Cor do texto */
+    text-align: center; /* Alinhamento do texto */
+    font-size: 14px; /* Tamanho da fonte */
+}
+</style>
+"""
+
+# Inserir o CSS no Streamlit
+st.markdown(custom_footer_css, unsafe_allow_html=True)
 
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
