@@ -1006,7 +1006,7 @@ if st.session_state.authenticated:
 
             # Adiciona a logo do Instagram e o texto
             pdf.cell(0, 10, ln=True, align="C")  # Move para a linha centralizada antes de inserir o conteúdo
-            pdf.image(instagram, x=pdf.get_x() + 60, y=pdf.get_y(), w=logo_width, h=logo_height)
+            pdf.image( logo_instagram, x=pdf.get_x() + 60, y=pdf.get_y(), w=logo_width, h=logo_height)
         
             # Alinha o texto após a imagem
             pdf.cell(logo_width)  # Espaço para alinhar o texto após a imagem
