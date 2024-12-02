@@ -932,7 +932,7 @@ if st.session_state.authenticated:
 
             # Adicionar a logo
             current_dir = os.path.dirname(os.path.abspath(__file__))
-            logo_path = os.path.join(current_dir, "ControllerSoft", "logo_DB.png")
+            logo_path = os.path.join(current_dir, "logo_DB.png"
 
             # Adiciona a imagem ao PDF
             pdf.image(logo_path, x=10, y=8, w=40)  # Ajuste conforme necessário
