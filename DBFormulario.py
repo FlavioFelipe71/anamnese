@@ -23,7 +23,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #999999;
     color: white;
     text-align: center;
     padding: 10px 0;
