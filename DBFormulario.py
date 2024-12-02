@@ -12,23 +12,29 @@ import locale
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
-# Adicionar CSS customizado para "jogar o avatar para o segundo plano"
+# Adicionando CSS customizado para mover o avatar para o segundo plano e exibir conteúdo sobre ele
 st.markdown(
     """
     <style>
-    /* Colocar o avatar para o fundo */
+    /* Colocar o container do avatar no fundo */
     ._profileContainer_gzau3_53 {
         position: relative;
-        z-index: -1;  /* Isso move o avatar para o fundo */
+        z-index: -1;  /* Mover o avatar para o fundo */
     }
 
-    /* Adicionar um elemento que ficará na frente do avatar */
+    /* Colocar o avatar específico para o fundo */
+    ._profilePreview_gzau3_63 {
+        position: relative;
+        z-index: -1;  /* Garantir que o avatar fique atrás */
+    }
+
+    /* Elemento customizado que ficará na frente do avatar */
     .custom-element {
         position: absolute;
         top: 50px;  /* Ajuste conforme necessário */
         left: 50px;  /* Ajuste conforme necessário */
-        z-index: 1;  /* Garantir que fique na frente do avatar */
-        background-color: rgba(255, 0, 0, 0.5); /* Cor de fundo semitransparente */
+        z-index: 10;  /* Garantir que o novo conteúdo fique na frente do avatar */
+        background-color: rgba(0, 128, 255, 0.5); /* Cor de fundo semitransparente (azul) */
         padding: 10px;
         color: white;
         font-size: 16px;
@@ -38,19 +44,9 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-##### Oculta o botão Deploy do Streamilit
-st.markdown("""
-    <style>
-        .reportview-container {
-            margin-top: -2em;
-        }
-        #MainMenu {visibility: hidden;}
-        .stDeployButton {display:none;}
-        footer {visibility: hidden;}
-        #stDecoration {display:none;}
-    </style>
-""", unsafe_allow_html=True
-)
+
+# Criar um elemento que será exibido na frente do avatar
+st.markdown('<div class="custom-element">Texto ou conteúdo exibido na frente do avatar</div>', unsafe_allow_html=True)
 
 ###### CSS para definir a imagem de fundo [Inicio]
 
