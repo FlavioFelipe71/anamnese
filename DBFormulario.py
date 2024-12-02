@@ -12,18 +12,30 @@ import locale
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
-# CSS para ocultar o avatar
+# CSS para ocultar o contêiner do avatar
 st.markdown(
     """
     <style>
-    /* Ocultar a imagem do avatar */
-    ._profileImage_gzau3_78._lightThemeShadow_gzau3_95 {
-        display: none !important;
+    /* Esconde o contêiner do avatar */
+    div._profileContainer_gzau3_53 {
+        visibility: hidden !important;
     }
     </style>
     """, 
     unsafe_allow_html=True
 )
+# CSS para ocultar a imagem do avatar diretamente via classe
+st.markdown(
+    """
+    <style>
+    /* Esconde o avatar com a classe específica */
+    div._profileContainer_gzau3_53 {
+        display: none !important;
+    }
+    </style>
+    """, 
+    unsafe_allow_html=True
+
 
 # Criar um elemento que será exibido na frente do avatar
 st.markdown('<div class="custom-element">Texto ou conteúdo exibido na frente do avatar</div>', unsafe_allow_html=True)
