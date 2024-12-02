@@ -13,29 +13,7 @@ import locale
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
 
-# Definir estado inicial para o elemento visível/invisível
-if "hide_profile" not in st.session_state:
-    st.session_state.hide_profile = False  # Começa visível
 
-# Função para alternar o estado
-def toggle_visibility():
-    st.session_state.hide_profile = not st.session_state.hide_profile
-
-# Botão para ocultar/exibir
-button_label = "Ocultar Perfil" if not st.session_state.hide_profile else "Mostrar Perfil"
-st.button(button_label, on_click=toggle_visibility)
-
-# CSS para ocultar o elemento
-if st.session_state.hide_profile:
-    hide_profile_css = """
-    <style>
-    ._profileContainer_gzau3_53 {
-        visibility: hidden; /* Torna o elemento invisível */
-        display: none;      /* Remove o elemento do layout */
-    }
-    </style>
-    """
-    st.markdown(hide_profile_css, unsafe_allow_html=True)
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
 footer = """
