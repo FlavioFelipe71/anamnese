@@ -1487,7 +1487,12 @@ else:
         
     # Exibir a imagem no canto superior esquerdo
     with col3:
-        foto = Image.open("C:\\python-projeto\\ControllerSoft\\logo_DB.png")  # Substitua pelo caminho da foto
+        # Obtém o caminho do diretório onde o script está sendo executado
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        logo_path = os.path.join(current_dir, "ControllerSoft", "logo_DB.png")
+        
+        # Abre e exibe a imagem no Streamlit
+        foto = Image.open(logo_path)  # Caminho dinâmico
         st.image(foto, use_column_width=True)
         
         usuario = st.text_input("Usuário:", max_chars=10)
