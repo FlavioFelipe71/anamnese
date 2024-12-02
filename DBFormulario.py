@@ -11,7 +11,7 @@ import locale
 
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
-
+st.title("Minha Página com Barra Fixa no Rodapé")
 # HTML e CSS para a barra fixa no rodapé
 footer = """
 <style>
