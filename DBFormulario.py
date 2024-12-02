@@ -11,7 +11,16 @@ import locale
 
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
+hide_st_style = “”"
 
+#MainMenu {visibilidade: oculto;}
+rodapé {visibilidade: oculto;}
+cabeçalho {visibilidade: oculto;}
+
+“”"
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
+##############################################################
 # HTML e CSS para a barra fixa no rodapé
 footer = """
 <style>
