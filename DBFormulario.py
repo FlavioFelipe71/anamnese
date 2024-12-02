@@ -22,8 +22,8 @@ footer:after {
 	display: block;
 	position: relative;
 	#background-color: red;
-	padding: 5px;
-	top: 2px;
+	padding: 05px;
+	top: 02px;
 }
 
 ##############################################################
