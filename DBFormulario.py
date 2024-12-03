@@ -12,16 +12,12 @@ import locale
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 st.title("Meu Aplicativo Streamlit")
-# Código CSS para ocultar o link
 st.markdown(
-    """
-    <style>
-    a[href="https://streamlit.io/cloud"] {
-        display: none; /* Oculta o elemento */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True)
+"""
+<style>
+._profileImage_gzau3_78 {
+display: none;
+}""",
 
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
