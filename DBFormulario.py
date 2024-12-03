@@ -17,7 +17,7 @@ st.markdown(
 <style>
 ._profileImage_gzau3_78 {
 display: none;
-}""",
+}""")
 
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
