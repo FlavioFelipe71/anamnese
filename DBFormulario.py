@@ -12,11 +12,18 @@ import locale
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
-st.markdown("""
-<div style="display:none;">
-<img src="path/to/your/image.png" alt="Imagem">
-</div>
-""")
+st.markdown(
+    """
+    <script>
+    const link = document.querySelector('a[href="https://streamlit.io/cloud"]');
+    if (link) {
+        link.href = "https://novo-link.com"; // Altera o link
+        link.textContent = "Novo Texto"; // Altera o texto visível do link
+    }
+    </script>
+    """,
+    unsafe_allow_html=True
+)
 
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
