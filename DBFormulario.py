@@ -16,7 +16,7 @@ st.markdown("""
 <div style="display:none;">
 <img src="path/to/your/image.png" alt="Imagem">
 </div>
-"""
+""")
 
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
