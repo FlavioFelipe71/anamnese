@@ -12,11 +12,11 @@ import locale
 # Configuração inicial da página
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 
-# Campo de entrada para a URL da imagem
-img_path = "logo_DB.png"
-
-# Exibir a imagem
-st.image(img_path, caption="App Creator Avatar", use_column_width=True)
+st.markdown("""
+<div style="display:none;">
+<img src="path/to/your/image.png" alt="Imagem">
+</div>
+"""
 
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
