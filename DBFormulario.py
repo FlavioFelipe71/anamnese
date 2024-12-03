@@ -21,7 +21,7 @@ st.markdown(
     }
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True)
 
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
