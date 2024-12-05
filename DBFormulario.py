@@ -13,6 +13,32 @@ import locale
 st.set_page_config(page_title="DB Terapeuta", layout="wide", page_icon="🌿")
 st.title("Meu Aplicativo Streamlit")
 
+# CSS para ocultar o elemento <header>
+st.markdown(
+    """
+    <style>
+        /* Ocultar o header completo */
+        .stAppHeader {
+            display: none;
+        }
+    </style>
+    """, 
+    unsafe_allow_html=True
+)
+
+##### Oculta o botão Deploy do Streamilit
+st.markdown("""
+    <style>
+        .reportview-container {
+            margin-top: -2em;
+        }
+        #MainMenu {visibility: hidden;}
+        .stDeployButton {display:none;}
+        footer {visibility: hidden;}
+        #stDecoration {display:none;}
+    </style>
+""", unsafe_allow_html=True
+)
 ##############################################################
 # HTML e CSS para a barra fixa no rodapé
 footer = """
